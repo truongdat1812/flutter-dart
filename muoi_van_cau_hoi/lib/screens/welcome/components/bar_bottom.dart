@@ -17,18 +17,47 @@ class BarBottom extends StatelessWidget {
     return Container(
       height: size.height * 0.07,
       color: kPrimaryColor,
-      child: Center(
-          child: new DotsIndicator(
-        controller: _pageController,
-        itemCount: 4,
-        onPageSelected: (int page) {
-          _pageController.animateToPage(
-            page,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.bounceInOut,
-          );
-        },
-      )),
+      padding: EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {},
+            child: Text(
+              'Bỏ qua',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          new DotsIndicator(
+            controller: _pageController,
+            itemCount: 4,
+            onPageSelected: (int page) {
+              _pageController.animateToPage(
+                page,
+                duration: Duration(milliseconds: 500),
+                curve: Curves.bounceInOut,
+              );
+            },
+          ),
+          GestureDetector(
+            onTap: () {
+              _pageController.animateToPage(_pageController.page!.toInt() + 1,
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.bounceInOut);
+            },
+            child: Text(
+              'Tiếp',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

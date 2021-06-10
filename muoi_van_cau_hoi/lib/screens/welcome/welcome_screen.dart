@@ -23,18 +23,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             controller: _pageController,
             pageSnapping: true,
             children: <Widget>[
-              WelcomePageView(),
-              Container(
-                color: Colors.green,
-                child: GestureDetector(
-                  onTap: () {},
-                ),
+              WelcomePageView(
+                textTitle: 'Mười Vạn Câu Hỏi Vè Sao?',
+                textContent:
+                    'Tập hợp kiến thức xung quanh ta với nhiều điều thú vị',
+                icon: 'assets/icons/flower.svg',
               ),
-              Container(
-                color: Colors.blue,
+              WelcomePageView(
+                textTitle: 'Truyện Cổ Tích',
+                textContent:
+                    'Những câu chuyện gắng liền với lối sống người dân Việt Nam và những cuộc phiêu lưu kỳ thú trên thế giới',
+                icon: 'assets/icons/heart-icon.svg',
               ),
-              Container(
-                color: Colors.yellow,
+              WelcomePageView(
+                textTitle: 'Flappy Bomb',
+                textContent: 'Giúp bạn vừa giải trí vừa học từ mới tiếng Anh',
+                icon: 'assets/icons/flower.svg',
+              ),
+              WelcomePageView(
+                textTitle: 'Kiểm Tra Kiến Thúc',
+                textContent: 'Đánh giá kiến thức bạn đã tìm hiểu được',
+                icon: 'assets/icons/flower.svg',
               ),
             ],
           ),

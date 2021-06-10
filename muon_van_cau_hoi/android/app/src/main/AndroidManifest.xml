@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.muoi_van_cau_hoi">
+    package="com.example.muon_van_cau_hoi">
    <application
-        android:label="muoi_van_cau_hoi"
+        android:label="muon_van_cau_hoi"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

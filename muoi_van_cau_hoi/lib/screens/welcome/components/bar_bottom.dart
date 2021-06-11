@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muoi_van_cau_hoi/constants.dart';
+import 'package:muoi_van_cau_hoi/screens/home/home_screen.dart';
 import 'package:muoi_van_cau_hoi/screens/welcome/components/dot_indicator.dart';
 
 class BarBottom extends StatelessWidget {
@@ -22,7 +23,10 @@ class BarBottom extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
             child: Text(
               'Bỏ qua',
               style: TextStyle(
@@ -44,9 +48,14 @@ class BarBottom extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              _pageController.animateToPage(_pageController.page!.toInt() + 1,
-                  duration: Duration(milliseconds: 500),
-                  curve: Curves.bounceInOut);
+              if (_pageController.page == 3) {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              } else {
+                _pageController.animateToPage(_pageController.page!.toInt() + 1,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.bounceInOut);
+              }
             },
             child: Text(
               'Tiếp',

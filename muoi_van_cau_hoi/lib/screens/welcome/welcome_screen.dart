@@ -33,7 +33,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 textTitle: 'Truyện Cổ Tích',
                 textContent:
                     'Những câu chuyện gắng liền với lối sống người dân Việt Nam và những cuộc phiêu lưu kỳ thú trên thế giới',
-                icon: 'assets/icons/heart-icon.svg',
+                icon: 'assets/icons/signup.svg',
               ),
               WelcomePageView(
                 textTitle: 'Flappy Bomb',
@@ -53,7 +53,3 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 }
-
-// _pageController.animateToPage(1,
-//     duration: Duration(milliseconds: 500),
-//     curve: Curves.bounceInOut);

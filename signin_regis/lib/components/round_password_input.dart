@@ -9,11 +9,13 @@ class RoundedPasswordInput extends StatelessWidget {
     required this.icon,
     required this.onchanged,
     required this.suffixIcon,
+    this.error,
   }) : super(key: key);
 
   final String hintText;
   final IconData icon, suffixIcon;
   final ValueChanged<String> onchanged;
+  final String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class RoundedPasswordInput extends StatelessWidget {
       decoration: InputDecoration(
           border: InputBorder.none,
           hintText: '$hintText',
+          errorText: error,
           icon: Icon(
             icon,
             color: kPrimaryColor,

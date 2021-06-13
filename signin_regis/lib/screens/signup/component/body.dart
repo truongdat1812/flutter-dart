@@ -12,6 +12,7 @@ import 'package:signin_regis/screens/login/login_screen.dart';
 import './background.dart';
 import './or_divider.dart';
 
+// ignore: must_be_immutable
 class Body extends StatelessWidget {
   LoginBloc bloc = LoginBloc();
   _signUp(BuildContext context) {
@@ -21,6 +22,22 @@ class Body extends StatelessWidget {
       print("create user success =>  Navigator to !");
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    }, (errorString) {
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                title: Text("Alert"),
+                content: Text("Sign up failed! " + errorString),
+                actions: <Widget>[
+                  RoundRectButton(
+                      text: 'OK',
+                      press: () {
+                        Navigator.of(context).pop();
+                      },
+                      backgroundColor: Colors.green,
+                      textColor: Colors.white)
+                ],
+              ));
     });
   }
 

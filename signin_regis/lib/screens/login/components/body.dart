@@ -5,6 +5,7 @@ import 'package:signin_regis/components/round_button.dart';
 import 'package:signin_regis/components/round_password_input.dart';
 import 'package:signin_regis/components/rounded_text_input.dart';
 import 'package:signin_regis/constants.dart';
+import 'package:signin_regis/screens/home/home_screen.dart';
 import 'package:signin_regis/screens/login/components/already_have_account.dart';
 import 'package:signin_regis/screens/signup/signup_screen.dart';
 import 'background.dart';
@@ -65,7 +66,7 @@ class Body extends StatelessWidget {
             RoundRectButton(
                 text: "LOGIN",
                 press: () {
-                  _loginPress();
+                  _loginPress(context);
                 },
                 backgroundColor: kPrimaryColor,
                 textColor: Colors.white),
@@ -82,11 +83,46 @@ class Body extends StatelessWidget {
     );
   }
 
-  void _loginPress() {
+  void _loginPress(BuildContext context) {
     if (bloc.isValidInfo(userName, password)) {
       print("Valid user go to homescreen");
+      bloc.signIn(userName ?? "", password ?? "", () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+      },
+          (errorString) => {
+                showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                          title: Text("Alert"),
+                          content: Text("Login failed! " + errorString),
+                          actions: <Widget>[
+                            RoundRectButton(
+                                text: 'OK',
+                                press: () {
+                                  Navigator.of(context).pop();
+                                },
+                                backgroundColor: Colors.green,
+                                textColor: Colors.white)
+                          ],
+                        ))
+              });
     } else {
-      print("InValid user show error on textbox using stream");
+      showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+                title: Text("Alert"),
+                content: Text("Invalid user name or password! "),
+                actions: <Widget>[
+                  RoundRectButton(
+                      text: 'OK',
+                      press: () {
+                        Navigator.of(context).pop();
+                      },
+                      backgroundColor: Colors.green,
+                      textColor: Colors.white)
+                ],
+              ));
     }
   }
 }

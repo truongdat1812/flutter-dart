@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "258257768214",
+    "firebase_url": "https://testproject-773c7.firebaseio.com",
+    "project_id": "testproject-773c7",
+    "storage_bucket": "testproject-773c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258257768214:android:d8e6029b7c72dc436c8a37",
+        "android_client_info": {
+          "package_name": "com.example.signin_regis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258257768214-d5gad3frrd25pr77e8rdu1tmb8db0rut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAJcS2nk8RsEynz1EvAcm2juZBv5DEQsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258257768214-d5gad3frrd25pr77e8rdu1tmb8db0rut.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "258257768214-k4cvtvumvcrmddra3gedlvjgsta3iln5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.signinRegis"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

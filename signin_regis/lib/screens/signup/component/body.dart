@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:signin_regis/blocs/signin_bloc.dart';
 import 'package:signin_regis/components/circle_social_icon.dart';
 import 'package:signin_regis/components/round_button.dart';
 import 'package:signin_regis/components/round_password_input.dart';
 import 'package:signin_regis/components/rounded_text_input.dart';
 import 'package:signin_regis/constants.dart';
+import 'package:signin_regis/screens/home/home_screen.dart';
 import 'package:signin_regis/screens/login/components/already_have_account.dart';
 import 'package:signin_regis/screens/login/login_screen.dart';
 import './background.dart';
 import './or_divider.dart';
 
 class Body extends StatelessWidget {
+  LoginBloc bloc = LoginBloc();
+  _signUp(BuildContext context) {
+    print("create user success!");
+    bloc.signUp(
+        "dat.truong.playsoft@gmail.com", "pass123456", '090765234', "Dat", () {
+      print("create user success =>  Navigator to !");
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -48,7 +61,9 @@ class Body extends StatelessWidget {
                   suffixIcon: Icons.visibility),
               RoundRectButton(
                   text: 'SIGN UP',
-                  press: () {},
+                  press: () {
+                    _signUp(context);
+                  },
                   backgroundColor: kPrimaryColor,
                   textColor: Colors.white),
               SizedBox(

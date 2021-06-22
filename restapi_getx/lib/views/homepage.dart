@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:shopx/controllers/product_controller.dart';
+import 'package:shopx/views/detail_screen.dart';
 import 'package:shopx/views/product_tile.dart';
 
 class HomePage extends StatelessWidget {
@@ -57,7 +58,11 @@ class HomePage extends StatelessWidget {
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   itemBuilder: (context, index) {
-                    return ProductTile(productController.productList[index]);
+                    return ProductTile(productController.productList[index],
+                        () {
+                      print('Tap on $index');
+                      Get.to(DetailScreen());
+                    });
                   },
                   staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                 );
